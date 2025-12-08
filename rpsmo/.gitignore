@@ -1,24 +1,59 @@
-# Logs
-logs
-*.log
+# -----------------------------------------------------------------
+# 1. Dependency and Build Output
+# -----------------------------------------------------------------
+
+# Dependencies
+/node_modules
+/dist
+/build
+
+# Production build output 
+/out
+/public/build
+/dist
+
+# -----------------------------------------------------------------
+# 2. Configuration and Caching
+# -----------------------------------------------------------------
+
+# Editor/IDE files
+.idea/             # JetBrains IDEs (IntelliJ, WebStorm, etc.)
+.vscode/           # VSCode settings (Optional, if you don't share workspace settings)
+
+# OS generated files
+.DS_Store          # macOS
+Thumbs.db          # Windows
+
+# npm logs
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+yarn-error.log
+.pnpm-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# -----------------------------------------------------------------
+# 3. TypeScript and JavaScript Artifacts
+# -----------------------------------------------------------------
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# TypeScript cache
+*.tsbuildinfo
+
+# Transpiled JavaScript/Source Maps (if applicable, though often handled by /dist)
+*.js.map
+/coverage          # Test coverage reports
+
+# -----------------------------------------------------------------
+# 4. Environment and Secrets
+# -----------------------------------------------------------------
+
+# Environment variables (Crucial for security and deployment consistency)
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# -----------------------------------------------------------------
+# 5. Tailwind CSS Artifacts
+# -----------------------------------------------------------------
+
+# Tailwind JIT/Watch cache files (these are typically temporary)
+.tailwindcss-config.js
