@@ -12,31 +12,34 @@ const ActionBoxButton: React.FC<ActionButtonProps> = ({ label, onClick, variant 
     // Define styles based on variant
     const baseStyles = `
         px-8 py-4 
-        font-bold text-lg
+        font-bold text-xl
         rounded-lg
         border-2
-        transition-all duration-200
+        transition-all duration-300 /* Smoother transition for heavy shadows */
         hover:scale-105
-        shadow-lg
+        shadow-[0_10px_30px_rgba(0,0,0,0.3)] /* Deep base shadow *
         tracking-wide
+        text-shadow-white
     `;
-    
+
     const variantStyles = {
         primary: `
             bg-sg-pink hover:bg-pink-600 
-            text-gray-900
+            text-white
             border-sg-pink
-            hover:shadow-pink-500/50
+            hover:shadow-[0_20px_40px_rgba(231,70,148,0.4)] /* Heavy glow effect */
         `,
-        secondary: `
-            bg-gray-600 hover:bg-gray-500 
-            text-pink-400
-            border-pink-500
+            secondary: `
+            text-glow-black
+            bg-sg-pink hover:bg-black
+            text-white
+            border-sg-magenta
+            hover:shadow-[0_20px_40px_rgba(231,70,148,0.4)]
         `
     };
-    
+
     return (
-        <button 
+        <button
             onClick={onClick}
             className={`${baseStyles} ${variantStyles[variant]}`}
         >

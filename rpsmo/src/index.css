@@ -6,14 +6,44 @@ html, body {
   height: 100%; 
   /* Set the background color here to match your component's dark theme */
   background-color: black; /* This is the hex code for Tailwind's gray-800 */
+  overflow: hidden;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'SGFont';
+  src: url('/fonts/Game Of Squids.otf') format('opentype'),
+       url('/fonts/Game Of Squids.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 * {
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'SGFont', "Times New Roman", Times, serif;
+}
+
+@layer utilities {
+  .text-glow-black {
+    /* filter: drop-shadow(0 0 15px rgba(231, 70, 148, 0.6)); */
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.9));
+  }
+
+  
+  .text-shadow-pink {
+    /* Offset-x | Offset-y | Blur | Color */
+    /* sg pink */
+    text-shadow: 3px 3px 3px rgba(231, 70, 148, 0.4);
+    
+  }
+
+  .text-shadow-white {
+    /* Offset-x | Offset-y | Blur | Color */
+    /* gray */
+    text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.4);
+  }
 }
 
 @layer components {

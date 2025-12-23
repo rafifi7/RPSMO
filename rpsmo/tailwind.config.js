@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        custom: ['SGFont', 'sans-serif'],
+      },
       colors: {
         'sg-pink': '#ed1b76',
         'sg-magenta': '#f44786',

@@ -3,6 +3,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import sgbg from "./images/squidgame_bg.png"
+import sgbg2 from "./images/splash_bg.jpg"
+import sgbg3 from "./images/scary man bg.jpg"
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -13,9 +15,10 @@ const App: React.FC = () => {
       <main className="relative min-h-screen w-full overflow-hidden">
         {/* Background image with blur */}
         <div 
-          className="fixed inset-0 bg-cover bg-center bg-no-repeat blur-sm"
+          className="fixed inset-0 bg-center bg-no-repeat blur-md"
           style={{
-            backgroundImage: `url(${sgbg})`
+            backgroundImage: `url(${sgbg3})`,
+            backgroundSize: '50%' 
           }}
         />
         
