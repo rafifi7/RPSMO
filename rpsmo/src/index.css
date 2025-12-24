@@ -21,9 +21,15 @@ html, body {
   font-style: normal;
   font-display: swap;
 }
+
 * {
   font-family: 'SGFont', "Times New Roman", Times, serif;
 }
+
+body {
+  overscroll-behavior: none;
+}
+
 
 @layer utilities {
   .text-glow-black {
@@ -44,17 +50,35 @@ html, body {
     /* gray */
     text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.4);
   }
+
+  .text-shadow-black {
+    /* Offset-x | Offset-y | Blur | Color */
+    /* gray */
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+  }
 }
 
 @layer components {
+  /* Your existing small card */
   .card {
-    @apply flex items center justify-center;
-    width:300px;
-    height: 100px;
-    background-color: theme("colors.sg-pink");
+    @apply flex items-center justify-center;
+    width: 500px;
+    height: 400px;
+    background-color: color-mix(in srgb, theme("colors.sg-dark-teal"), transparent 15%);
+    backdrop-filter: blur(8px);
     border-radius: 8px;
-    border: 0.7px solid #eee;
+    border: 0.7px solid theme("colors.sg-teal");
     box-shadow: 0 4px 10px -1px rgba(0,0,0,0.1), 
-    0 2px 6px -2px rgba(0,0, 0, 0.2);
+                0 2px 6px -2px rgba(0,0,0,0.2);
+  }
+
+  /* New Rules Card variant */
+  .card-rules {
+    @apply card; /* This "inherits" the styles from .card */
+    width: min(90%, 700px); /* Responsive width */
+    height: auto;           /* Grows with the text */
+    padding: 2rem;
+    flex-direction: column; /* Stacks text vertically */
+    justify-content: flex-start;
   }
 }
