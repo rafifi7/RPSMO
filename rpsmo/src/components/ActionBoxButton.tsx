@@ -17,21 +17,24 @@ const ActionBoxButton: React.FC<ActionButtonProps> = ({ label, onClick, variant 
         border-2
         transition-all duration-300 /* Smoother transition for heavy shadows */
         hover:scale-105
+        active:scale-95 
         shadow-[0_10px_30px_rgba(0,0,0,0.3)] /* Deep base shadow *
         tracking-wide
         text-shadow-black
+        animate-in fade-in zoom-in-95 duration-500 /* <--- Animation when it appears */
     `;
 
     const variantStyles = {
         primary: `
-            bg-sg-dark-teal hover:bg-black 
+            bg-sg-dark-teal/90 hover:bg-black 
             text-white
             border-sg-teal
+            backdrop-filter: blur(8px);
             hover:shadow-[0_20px_40px_rgba(3,122,118,0.4)] /* Heavy glow effect */
         `,
             secondary: `
             text-glow-black
-            bg-sg-pink hover:bg-black
+            bg-sg-pink/90 hover:bg-black
             text-white
             border-sg-pink
             hover:shadow-[0_20px_40px_rgba(231,70,148,0.4)]

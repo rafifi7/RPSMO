@@ -1,26 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import sgbg2 from "./images/splash_bg.jpg";
+import splash from "./images/splash_bg.jpg";
 import sgbg3 from "./images/scary man bg.jpg";
 import shapes from "./images/shapes bg.png";
 import Home from './pages/Home';
 import Rules from './pages/Rules';
+import Singleplayer from './pages/Singleplayer';
 
 const AppContent: React.FC = () => {
   const location = useLocation();
-  const isRules = location.pathname === '/rules';
+  const [isGameActive, setIsGameActive] = useState(false);
+
+  // Determine which background to show
+  const isSingleplayerPath = location.pathname === '/singleplayer';
+  const isRulesPath = location.pathname === '/rules';
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setIsGameActive(false);
+    }
+  }, [location.pathname]);
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
       <div
-        key={isRules ? 'rules-bg' : 'home-bg'}
-        className={`fixed inset-0 bg-center bg-no-repeat transition-opacity duration-500 ${isRules ? 'scale-125 rotate-90 blur-[2px]' : 'scale-x-125 blur-[5px]'
+        key={isGameActive ? 'rules-bg' : 'home-bg'}
+        className={`fixed inset-0 bg-center bg-no-repeat transition-opacity duration-500 ${isGameActive ? 'scale-150 rotate-90 ' : 'scale-x-125 blur-[5px]'
           }` }
         style={{
-          backgroundImage: `url(${isRules ? shapes : sgbg3})`,
+          backgroundImage: `url(${isGameActive ? splash : sgbg3})`,
           // Rules (sgbg2) stays at its natural size (997x702)
           // Home (sgbg3) uses your 50% zoom setting
-          backgroundSize: isRules ? 'cover' : '50%',
+          backgroundSize: isGameActive ? '32.5%' : '50%',
         }}
       />
 
@@ -32,6 +43,7 @@ const AppContent: React.FC = () => {
           <Routes>
             <Route index element={<Home />} />
             <Route path="/rules" element={<Rules />} />
+            <Route path="/singleplayer" element={<Singleplayer setIsGameActive={setIsGameActive} />} />
             <Route path="*" element={<h1>404: Page Not Found</h1>} />
           </Routes>
         </div>

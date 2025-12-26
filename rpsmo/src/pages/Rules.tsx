@@ -16,12 +16,12 @@ const Rules = () => {
             {/* Rules List */}
             <div className="space-y-4 text-white font-medium mb-8 text-2xl text-shadow-black">
 
-                <p>1. Both players show <span className="font-black">two</span> hands.</p>
-                <p>2. Look at your opponent's hands and yours.</p>
-                <p>3. On "Minus One", hide your <span className="font-black">losing</span> hand.</p>
-                <p>4. The remaining hands determine the loser of the round.</p>
-                <p>5. The round loser then has a 5/6 chance of suriving. </p>
-                <p>6. Survive to continue the game, or else you lose </p>
+                <p>1. Both players show <span className="font-black">two</span> hands</p>
+                <p>2. Both players can see each others hands</p>
+                <p>3. On "Minus One", players must take a hand back</p>
+                <p>4. The remaining hands determine the loser of the round</p>
+                <p>5. The round loser then has a 5/6 chance of suriving</p>
+                <p>6. Game continues until a player dies </p>
 
             </div>
 
@@ -30,7 +30,9 @@ const Rules = () => {
 
         <ActionBoxButton
             label="Back to Menu"
-            onClick={() => navigate('/')}
+            onClick={() => { 
+                navigate('/')
+            }}
             variant="primary"
         />
         </>
