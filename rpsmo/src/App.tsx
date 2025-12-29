@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import splash from "./images/splash_bg.jpg";
+import splash from "./images/splash_bg.png";
 import sgbg3 from "./images/scary man bg.jpg";
-import shapes from "./images/shapes bg.png";
 import Home from './pages/Home';
 import Rules from './pages/Rules';
 import Singleplayer from './pages/Singleplayer';
@@ -10,10 +9,7 @@ import Singleplayer from './pages/Singleplayer';
 const AppContent: React.FC = () => {
   const location = useLocation();
   const [isGameActive, setIsGameActive] = useState(false);
-
-  // Determine which background to show
-  const isSingleplayerPath = location.pathname === '/singleplayer';
-  const isRulesPath = location.pathname === '/rules';
+  const [opacity, setOpacity] = useState(1);
 
   useEffect(() => {
     if (location.pathname === '/') {
@@ -21,19 +17,28 @@ const AppContent: React.FC = () => {
     }
   }, [location.pathname]);
 
+  // Add this effect to handle the fade
+  useEffect(() => {
+    setOpacity(0);
+    const timer = setTimeout(() => setOpacity(1), 50);
+    return () => clearTimeout(timer);
+  }, [isGameActive]);
+
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
       <div
-        key={isGameActive ? 'rules-bg' : 'home-bg'}
-        className={`fixed inset-0 bg-center bg-no-repeat transition-opacity duration-500 ${isGameActive ? 'scale-150 rotate-90 ' : 'scale-x-125 blur-[5px]'
-          }` }
+        key={isGameActive ? 'active-game-bg' : 'static-menu-bg'}
+        className="fixed inset-0 bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${isGameActive ? splash : sgbg3})`,
-          // Rules (sgbg2) stays at its natural size (997x702)
-          // Home (sgbg3) uses your 50% zoom setting
           backgroundSize: isGameActive ? '32.5%' : '50%',
+          transform: isGameActive ? 'scale(1.5) rotate(90deg)' : 'scaleX(1.25) rotate(0deg)',
+          filter: isGameActive ? 'blur(0px)' : 'blur(5px)',
+          opacity: opacity,
+          transition: 'opacity 0.7s ease-in-out',
         }}
       />
+      {/* rest of your code... */}
 
       <div className="fixed inset-0 bg-black/10" />
 
@@ -43,7 +48,10 @@ const AppContent: React.FC = () => {
           <Routes>
             <Route index element={<Home />} />
             <Route path="/rules" element={<Rules />} />
-            <Route path="/singleplayer" element={<Singleplayer setIsGameActive={setIsGameActive} />} />
+            <Route
+              path="/singleplayer"
+              element={<Singleplayer setIsGameActive={setIsGameActive} />}
+            />
             <Route path="*" element={<h1>404: Page Not Found</h1>} />
           </Routes>
         </div>
@@ -51,7 +59,6 @@ const AppContent: React.FC = () => {
     </main>
   );
 };
-
 const App: React.FC = () => {
   return (
     <BrowserRouter>
