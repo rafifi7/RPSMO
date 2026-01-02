@@ -71,8 +71,7 @@ Open `http://localhost:5173` in your browser.
 
 ## 👤 Author
 
-[Your Name]
-
+Rafee Adnan
 ---
 
 **Currently single-player only. Multiplayer coming soon!**
