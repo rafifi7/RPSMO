@@ -2,6 +2,7 @@
 ## Created using Node.js, React, and TypeScript
 
 A thrilling twist on the classic Rock Paper Scissors game. Test your luck and strategy in this intense single-player experience!
+Everything written in the frontend.
 
 ## 🎮 Game Overview
 
@@ -10,7 +11,7 @@ Each round consists of:
 2. **Hand Reveal** - See what you and the computer selected
 3. **Minus One Phase** (3 seconds) - Remove one of your hands
 4. **Showdown** - Compare remaining hands
-5. **Wheel of Fate** - Losers spin for survival (5/6 chance to live)
+5. **Wheel of Fate** - Losers spin for survival (5/6 chance to live - mimics the roulette from the recruiter in Squid Games Season 2)
 
 ## ✨ Features
 
