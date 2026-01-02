@@ -40,16 +40,16 @@ const Home: React.FC = () => {
 
                     <div className="flex flex-col space-y-28 items-center w-full">
                         <ActionBoxButton
-                            label="Singleplayer"
+                            label="Play Game"
                             onClick={() => navigate('/singleplayer')}
                             // variant="primary"
                             variant="secondary"
                         />
-                        <ActionBoxButton
+                        {/* <ActionBoxButton
                             label="Multiplayer"
                             onClick={() => navigate('/multiplayer')}
                             variant="secondary"
-                        />
+                        /> */}
                         <ActionBoxButton
                             label="View Rules"
                             onClick={() => navigate('/rules')}
