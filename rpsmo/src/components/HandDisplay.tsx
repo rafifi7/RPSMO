@@ -43,7 +43,7 @@ const HandDisplay: React.FC<HandDisplayProps> = ({
                 <div className="flex flex-col items-center gap-2">
                     <p className="text-white text-2xl font-bold text-shadow-black">Left</p>
                     {leftHand && removedHand !== 'left' ? (
-                        <div className={selectedToRemove === 'left' ? 'opacity-50 border-4 border-yellow-400 rounded-lg' : ''}>
+                        <div className={selectedToRemove === 'left' ? 'opacity-50 border-4 border-white rounded-lg' : ''}>
                             <img src={handImages[leftHand]} alt={leftHand} className="w-24 h-24 image-shadow-black" />
                         </div>
                     ) : removedHand === 'left' ? (

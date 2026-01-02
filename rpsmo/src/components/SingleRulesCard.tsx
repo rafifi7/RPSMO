@@ -15,8 +15,8 @@ const RulesCard: React.FC<RulesCardProps> = ({ onPlay, onBack }) => {
                 <div className="space-y-4 text-white font-medium mb-8 text-2xl text-shadow-black">
                     <p>1. You are against a computer</p>
                     <p>2. Each round, you have <span className="font-black">5</span> seconds to select both of your hands </p>
-                    <p>3. On "Minus One", you will have <span className="font-black">2</span> seconds to select a hand to remove</p>
-                    <p>4. If you are unable to select in time, you will lose the round</p>
+                    <p>3. If you are unable to select in time, you will lose the round</p>
+                    <p>4. On "Minus One", you will have <span className="font-black">2</span> seconds to select a hand to remove</p>
                     <p>5. Good Luck!</p>
                 </div>
             </div>
