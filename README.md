@@ -1,4 +1,4 @@
-# RPSMO - Rock Paper Scissors Minus One
+# RPSMO - Minus One Web App
 ## Created using Node.js, React, and TypeScript
 
 A thrilling twist on the classic Rock Paper Scissors game. Test your luck and strategy in this intense single-player experience!
